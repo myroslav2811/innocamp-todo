@@ -12,14 +12,14 @@ window.addEventListener('load', () => {
     document.querySelector('.cancel-button').addEventListener('click', closeModalWindow, false);
     document.querySelector('.submit').addEventListener('click', addCard, false);
     document.querySelector('.sort-cards').addEventListener('click', () => sortCards(CARDS), false);
-    document.querySelector('.search-area').addEventListener('input', onSearchHandler, false);
+    document.querySelector('.search-area').addEventListener('input', () => onSearchHandler(CARDS), false);
     showCards(CARDS);
 }, false);
 
-const onSearchHandler = event => {
-    let value = event.target.value;
+const onSearchHandler = cards => {
+    let value = document.querySelector('.search-area').value;
     console.log(value);
-    let filteredCards = CARDS.filter(item => item.name.toLowerCase().replace(/\s/g, "").includes(value.toLowerCase().replace(/\s/g, "")));
+    let filteredCards = cards.filter(item => item.name.toLowerCase().replace(/\s/g, "").includes(value.toLowerCase().replace(/\s/g, "")));
     showCards(filteredCards);
 };
 
@@ -98,13 +98,13 @@ const addCard = () => {
         errorMessage.style.display = 'none';
     }
     localStorage.setItem('cards', JSON.stringify(CARDS));
-    showCards(CARDS);
+    onSearchHandler(CARDS);
 };
 
 const deleteItem = id => {
     CARDS = CARDS.filter(item => item.id !== id);
     localStorage.setItem('cards', JSON.stringify(CARDS));
-    showCards(CARDS);
+    onSearchHandler(CARDS);
 };
 
 const markItem = id => {
@@ -115,7 +115,7 @@ const markItem = id => {
         return card;
     });
     localStorage.setItem('cards', JSON.stringify(CARDS));
-    showCards(CARDS);
+    onSearchHandler(CARDS);
 };
 
 const showCards = items => {
@@ -161,6 +161,6 @@ const showCards = items => {
 
 const sortCards = cards => {
     cards.sort((a, b) => !!a.done - !!b.done);
-    showCards(cards);
+    onSearchHandler(cards);
 };
 
