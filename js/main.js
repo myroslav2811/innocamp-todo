@@ -74,7 +74,7 @@ const addCard = () => {
         let description = form.elements.cardDescription.value;
         let priority = form.elements.cardPriority.value;
         let deadline = form.elements.cardDeadline.value;
-        let id = state.edit ? state.id : CARDS.length ? CARDS[CARDS.length - 1].id + 1 : 1;
+        let id = state.edit ? state.id : `f${(+new Date).toString(16)}`;
         description = description ? description : 'No description';
         deadline = deadline ? deadline : 'No deadline';
         const item = {
@@ -85,6 +85,7 @@ const addCard = () => {
             deadline,
             done: false
         };
+
         if (!state.edit) {
             CARDS.push(item);
         } else {
