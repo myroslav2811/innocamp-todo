@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="icon" type="image/png" href="./img/fav.png">
+</head>
+<body>
+<div class="modal-window-container">
+    <div class="modal-window">
+        <form id="newCard">
+            <p class="form-header">
+                <span>Title</span>
+                <span class="close-modal">X</span>
+            </p>
+            <p class="form-section">
+                <span class="form-item">
+                    <input name="cardName" id="name-field" type="text" placeholder="Name">
+                </span>
+                <span class="error-message">Field is empty or consists unacceptable symbols</span>
+                <span class="form-item">
+                    <input name="cardDescription" type="text" placeholder="Description">
+                </span>
+                <span class="form-item">
+                    <select name="cardPriority">
+                        <option value="low">Low</option>
+                        <option value="middle">Middle</option>
+                        <option value="high">High</option>
+                    </select>
+                </span>
+                <span class="form-item">
+                    <input name="cardDeadline" type="date" placeholder="Deadline">
+                </span>
+            </p>
+            <p class="form-footer">
+                <button type="reset" class="cancel-button">Cancel</button>
+                <button type="submit" form="newCard" class="submit">Add</button>
+            </p>
+        </form>
+    </div>
+</div>
+<div id="cards-container"></div>
+<button class="show-modal">+</button>
+<button class="sort-cards">Sort by done</button>
+<script src="./js/main.js"></script>
+</body>
+</html>
