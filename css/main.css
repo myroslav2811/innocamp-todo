@@ -3,7 +3,7 @@ body {
     padding: 0;
 }
 
-.modal-window{
+.modal-window {
     background-color: lightblue;
     width: 40%;
     margin: 10vh auto;
@@ -37,8 +37,8 @@ body {
     margin-left: 5px;
 }
 
-.modal-window .form-header h1, 
-.modal-window .form-header p{
+.modal-window .form-header h1,
+.modal-window .form-header p {
     font-size: 20px;
 }
 
@@ -68,12 +68,12 @@ body {
     float: left;
 }
 
-.form-header span.close-modal{
+.form-header span.close-modal {
     float: right;
     cursor: pointer;
 }
 
-.form-header:after{
+.form-header:after {
     content: '';
     display: block;
     visibility: hidden;
@@ -91,30 +91,52 @@ body {
 }
 
 .show-modal,
-.sort-cards{
+.sort-cards {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+}
+
+
+.show-modal,
+.sort-cards {
     cursor: pointer;
     border: 1px solid black;
     border-radius: 50%;
     font-size: 30px;
-    background-color: transparent;
+    background-color: #fff;
     width: 60px;
     height: 60px;
-    position: fixed;
-    bottom: 50px;
-    right: 50px;
     outline: none;
-
 }
 
 .sort-cards {
-    left: 50px;
     font-size: 12px;
+    left: 50px;
 }
 
 .show-modal:hover,
-.sort-cards:hover{
+.sort-cards:hover {
     background-color: lightblue;
     transition: 0.3s all;
+}
+
+
+.search-area {
+    outline: none;
+    width: 200px;
+    position: fixed;
+    bottom: 60px;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid black;
+    left: 150px;
+    background-color: #fff;
+}
+
+.search-area:focus{
+    background-color: skyblue;
 }
 
 ul {
@@ -122,6 +144,7 @@ ul {
     padding: 0;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    margin-bottom: 150px;
 }
 
 ul li {

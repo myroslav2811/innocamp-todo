@@ -12,9 +12,16 @@ window.addEventListener('load', () => {
     document.querySelector('.cancel-button').addEventListener('click', closeModalWindow, false);
     document.querySelector('.submit').addEventListener('click', addCard, false);
     document.querySelector('.sort-cards').addEventListener('click', () => sortCards(CARDS), false);
-
+    document.querySelector('.search-area').addEventListener('input', onSearchHandler, false);
     showCards(CARDS);
 }, false);
+
+const onSearchHandler = event => {
+    let value = event.target.value;
+    console.log(value);
+    let filteredCards = CARDS.filter(item => item.name.toLowerCase().replace(/\s/g, "").includes(value.toLowerCase().replace(/\s/g, "")));
+    showCards(filteredCards);
+};
 
 const closeModalWindow = event => {
     const modalContainer = document.querySelector('.modal-window-container');
